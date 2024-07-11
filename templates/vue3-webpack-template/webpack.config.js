@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { ModuleFederationPlugin } = require('@module-federation/enhanced');
 const { readFileSync } = require('fs');
 
-const mfConfig = JSON.parse(readFileSync('./mf.config.json'));
+const mfConfig = JSON.parse(readFileSync('./mf.config.json', 'utf8'));
 
 module.exports = (env = {}) => ({
   mode: 'development',
@@ -59,7 +59,7 @@ module.exports = (env = {}) => ({
     }),
     new VueLoaderPlugin(),
     new ModuleFederationPlugin({
-      name: 'container',
+      name: 'host',
       filename: 'remoteEntry.js',
       dts: {
         generateTypes: {

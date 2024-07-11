@@ -7,13 +7,14 @@
     "mf-kit": "dist/index.js"
   },
   "scripts": {
-    "build": "tsc && ./build.sh"
+    "build": "tsc && ts-node ./build"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@inquirer/prompts": "^5.1.2",
+    "@types/node": "^20.14.10",
     "chalk": "^5.3.0",
     "commander": "^12.1.0",
     "typescript": "^5.5.3",
