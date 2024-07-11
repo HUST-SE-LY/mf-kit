@@ -3,6 +3,9 @@ const { VueLoaderPlugin } = require('vue-loader');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { ModuleFederationPlugin } = require('@module-federation/enhanced');
+const { readFileSync } = require('fs');
+
+const mfConfig = JSON.parse(readFileSync('./mf.config.json'));
 
 module.exports = (env = {}) => ({
   mode: 'development',
@@ -10,13 +13,10 @@ module.exports = (env = {}) => ({
   optimization: {
     minimize: false,
   },
-  externals: {
-    vue: 'Vue',
-  },
   target: 'web',
   entry: path.resolve(__dirname, './src/index.ts'),
   output: {
-    publicPath: 'http://localhost:3000/',
+    publicPath: `http://localhost:${mfConfig.host.port}/`,
   },
   resolve: {
     extensions: ['.vue', '.jsx', '.js', '.json', '.tsx', '.ts'],
@@ -65,11 +65,14 @@ module.exports = (env = {}) => ({
         generateTypes: {
           compilerInstance: 'vue-tsc'
         }
+      },
+      remotes: {
+        ...mfConfig.host.curRemotes
       }
     }),
   ],
   devServer: {
-    port: 3000,
+    port: mfConfig.host.port,
     compress: true,
     headers: {
       'Access-Control-Allow-Origin': '*',
