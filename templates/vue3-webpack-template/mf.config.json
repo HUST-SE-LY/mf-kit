@@ -1,7 +1,9 @@
 {
+  "template": "vue3-webpack",
   "host": {
     "port": 3000,
-    "curRemotes": {}
+    "curRemotes": {},
+    "exposes": {}
   },
   "remotes": {}
 }
