@@ -1,5 +1,4 @@
 import { join } from 'path'
-import chalk from 'chalk'
 import { writeFileSync } from 'fs';
 import { Log } from '../utils/log';
 type MfConfig = {

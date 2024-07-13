@@ -7,17 +7,23 @@
     "mf-kit": "dist/index.js"
   },
   "scripts": {
-    "build": "tsc && ts-node ./build"
+    "build": "tsc && ts-node ./build",
+    "lint": "eslint"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@inquirer/prompts": "^5.1.2",
-    "@types/node": "^20.14.10",
     "chalk": "^5.3.0",
-    "commander": "^12.1.0",
+    "commander": "^12.1.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.7.0",
+    "@types/node": "^20.14.10",
+    "eslint": "9.7.0",
+    "globals": "^15.8.0",
     "typescript": "^5.5.3",
-    "webpack": "^5.92.1"
+    "typescript-eslint": "^7.16.0"
   }
 }
