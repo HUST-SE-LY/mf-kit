@@ -16,16 +16,21 @@ export async function init() {
       },
       {
         name: 'vue3 + rsbuild',
-        value: 'vueWithRsbuild'
+        value: 'vueWithRsbuild',
       },
     ],
   });
   const templatePath = join(
-    __dirname + '../../templates/' + templatePathMap[template]
+    __dirname + '../../templates/' + templatePathMap[template],
   );
   const targetPath = join(cwd, projectName);
   copy(templatePath, targetPath);
-  const packageJson = JSON.parse(readFileSync(join(cwd, `./${projectName}`, '/package.json'), 'utf-8'));
+  const packageJson = JSON.parse(
+    readFileSync(join(cwd, `./${projectName}`, '/package.json'), 'utf-8'),
+  );
   packageJson.name = projectName;
-  writeFileSync(join(cwd, `./${projectName}`, '/package.json'), JSON.stringify(packageJson, null, 2));
+  writeFileSync(
+    join(cwd, `./${projectName}`, '/package.json'),
+    JSON.stringify(packageJson, null, 2),
+  );
 }
