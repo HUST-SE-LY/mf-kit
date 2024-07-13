@@ -6,6 +6,9 @@
   "bin": {
     "mf-kit": "dist/index.js"
   },
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
+  },
   "scripts": {
     "build": "tsc && ts-node ./build",
     "lint": "eslint",
@@ -25,6 +28,8 @@
     "eslint": "9.7.0",
     "globals": "^15.8.0",
     "husky": "^9.0.11",
+    "lint-staged": "^15.2.7",
+    "prettier": "3.3.2",
     "typescript": "^5.5.3",
     "typescript-eslint": "^7.16.0"
   }
