@@ -8,7 +8,8 @@
   },
   "scripts": {
     "build": "tsc && ts-node ./build",
-    "lint": "eslint"
+    "lint": "eslint",
+    "prepare": "husky"
   },
   "keywords": [],
   "author": "",
@@ -23,6 +24,7 @@
     "@types/node": "^20.14.10",
     "eslint": "9.7.0",
     "globals": "^15.8.0",
+    "husky": "^9.0.11",
     "typescript": "^5.5.3",
     "typescript-eslint": "^7.16.0"
   }
