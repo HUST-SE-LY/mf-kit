@@ -25,6 +25,9 @@ export default defineConfig({
           remotes: {
             ...mfConfig.host.curRemotes,
           },
+          exposes: {
+            ...mfConfig.host.exposes,
+          },
           shared: ['vue'],
         }),
       ]);

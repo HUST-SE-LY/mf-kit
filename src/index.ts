@@ -3,6 +3,7 @@
 import { program } from 'commander';
 import { init } from './bin/init';
 import { addRemote } from './bin/addRemote';
+import { addExpose } from './bin/addExpose';
 program
   .version('1.0.0')
   .name('mf-kit')
@@ -14,4 +15,10 @@ program.command('init').action(() => {
 program.command('add-remote <name> <url>').action((name, url) => {
   addRemote(name, url);
 });
+
+program
+  .command('expose <remotePath> <localPath>')
+  .action((remotePath, localPath) => {
+    addExpose(remotePath, localPath);
+  });
 program.parse();
