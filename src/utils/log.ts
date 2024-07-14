@@ -1,4 +1,4 @@
-import chalk from "chalk";
+import chalk from 'chalk';
 
 export class Log {
   static info(content: string) {
@@ -10,6 +10,6 @@ export class Log {
   }
 
   static error(content: string) {
-    console.log(chalk.red(content))
+    console.log(chalk.red(content));
   }
 }

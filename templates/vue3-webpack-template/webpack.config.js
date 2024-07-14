@@ -68,7 +68,10 @@ module.exports = (env = {}) => ({
       },
       remotes: {
         ...mfConfig.host.curRemotes
-      }
+      },
+      exposes: {
+        ...mfConfig.host.exposes,
+      },
     }),
   ],
   devServer: {
