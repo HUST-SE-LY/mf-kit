@@ -7,4 +7,5 @@ export type MfConfig = {
     curRemotes: Record<string, string>;
     exposes: Record<string, string>;
   };
-} & Record<string, string>;
+  modules: Record<string, string>;
+};

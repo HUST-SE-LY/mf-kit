@@ -3,10 +3,15 @@ import { writeFileSync } from 'fs';
 import { Log } from '../utils/log';
 import { MfConfig } from './types';
 
+/**
+ * add a remote
+ * @param {string} name - eg: 'app1'
+ * @param {string} url - eg: 'http://localhost:3001'
+ */
 export async function addRemote(name: string, url: string) {
   const cwd = process.cwd();
   const mfConfig = JSON.parse(join(cwd, './mf.config.json')) as MfConfig;
-  if (mfConfig[name]) {
+  if (mfConfig.modules[name]) {
     Log.error(`remote ${name} has already existed!`);
     return;
   }
@@ -14,7 +19,7 @@ export async function addRemote(name: string, url: string) {
     Log.error(`remote url ${url} has already existed!`);
     return;
   }
-  mfConfig[name] = url;
+  mfConfig.modules[name] = url;
   mfConfig.host.curRemotes[name] = `${name}@${url}/mf-manifest.json`;
   writeFileSync(
     join(cwd, './mf.config.json'),
