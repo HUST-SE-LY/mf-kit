@@ -3,6 +3,7 @@ import { join } from 'path';
 import { templatePathMap } from '../constants';
 import { copy } from '../utils/copy';
 import { readFileSync, writeFileSync } from 'fs';
+import { Log } from '../utils/log';
 
 export async function init() {
   const projectName = await input({ message: 'Please enter project name:' });
@@ -41,4 +42,5 @@ export async function init() {
     join(cwd, `./${projectName}`, '/mf.config.json'),
     JSON.stringify(mfConfig, null, 2),
   );
+  Log.info('create host app successfully!');
 }
