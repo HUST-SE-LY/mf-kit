@@ -16,7 +16,7 @@ export default defineConfig({
       config.output!.uniqueName = 'host';
       appendPlugins([
         new ModuleFederationPlugin({
-          name: 'host',
+          name: mfConfig.name,
           dts: {
             generateTypes: {
               compilerInstance: 'vue-tsc',

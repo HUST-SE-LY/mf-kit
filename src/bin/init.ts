@@ -28,9 +28,17 @@ export async function init() {
   const packageJson = JSON.parse(
     readFileSync(join(cwd, `./${projectName}`, '/package.json'), 'utf-8'),
   );
+  const mfConfig = JSON.parse(
+    readFileSync(join(cwd, `./${projectName}`, '/mf.config.json'), 'utf-8'),
+  );
+  mfConfig.name = projectName;
   packageJson.name = projectName;
   writeFileSync(
     join(cwd, `./${projectName}`, '/package.json'),
     JSON.stringify(packageJson, null, 2),
+  );
+  writeFileSync(
+    join(cwd, `./${projectName}`, '/mf.config.json'),
+    JSON.stringify(mfConfig, null, 2),
   );
 }

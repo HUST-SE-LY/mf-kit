@@ -102,9 +102,9 @@ export async function initRemote() {
       .replace(
         `import * as reactBridge from '@module-federation/bridge-react';`,
         `import * as reactBridge from '@module-federation/bridge-react';
-const ${microAppName} = ${templateBridgeMap[remoteMfConfig.template]}.createRemoteComponent(() =>
-  loadRemote('${microAppName}/export-app'),
-);`,
+const ${microAppName} = ${templateBridgeMap[remoteMfConfig.template]}.createRemoteComponent({
+  loader: () => loadRemote('${microAppName}/export-app'),
+});`,
       )
       .replace(
         'remoteAppRoutes = [',
