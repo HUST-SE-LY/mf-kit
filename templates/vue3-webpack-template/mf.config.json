@@ -1,9 +1,10 @@
 {
+  "name": "host",
   "template": "vue",
   "host": {
     "port": 3000,
     "curRemotes": {},
     "exposes": {}
   },
-  "remotes": {}
+  "modules": {}
 }

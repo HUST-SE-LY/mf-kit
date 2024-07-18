@@ -4,6 +4,7 @@ import { program } from 'commander';
 import { init } from './bin/init';
 import { addRemote } from './bin/addRemote';
 import { addExpose } from './bin/addExpose';
+import { initRemote } from './bin/initRemote';
 program
   .version('1.0.0')
   .name('mf-kit')
@@ -21,4 +22,8 @@ program
   .action((remotePath, localPath) => {
     addExpose(remotePath, localPath);
   });
+
+program.command('init-micro-app').action(() => {
+  initRemote();
+});
 program.parse();
