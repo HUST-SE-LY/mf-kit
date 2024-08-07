@@ -14,3 +14,29 @@ MF-Kit is a CLI tool designed to help you create and manage micro apps using Mod
 - [ ] CLI to publish application
 
 Stay tuned for updates!
+
+## Usage
+
+### Create Module Federation App
+
+```shell
+mf-kit init
+```
+
+### Create Micro-App
+
+```shell
+mf-kit init-micro-app
+```
+
+### Expose a Module
+
+```shell
+mf-kit expose <remotePath> <localPath>
+```
+
+### Add a Remote Url to Current App
+
+```shell
+mf-kit add-remote <name> <url>
+```
