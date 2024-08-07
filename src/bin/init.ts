@@ -24,8 +24,10 @@ export async function init() {
   const templatePath = join(
     __dirname + '../../templates/' + templatePathMap[template],
   );
+  const monorepoPath = join(__dirname + '../../templates/host');
   const targetPath = join(cwd, projectName);
   copy(templatePath, targetPath);
+  copy(monorepoPath, targetPath);
   const packageJson = JSON.parse(
     readFileSync(join(cwd, `./${projectName}`, '/package.json'), 'utf-8'),
   );
@@ -34,6 +36,7 @@ export async function init() {
   );
   mfConfig.name = projectName;
   packageJson.name = projectName;
+  packageJson.devDependencies.lerna = '^8.1.8';
   writeFileSync(
     join(cwd, `./${projectName}`, '/package.json'),
     JSON.stringify(packageJson, null, 2),
